@@ -13,7 +13,7 @@ using std::vector;
 
 int main() {
   MPC mpc;
-  int iters = 50;
+  int iters = 60;
 
   VectorXd ptsx(2);
   VectorXd ptsy(2);
@@ -23,7 +23,7 @@ int main() {
   /**
    * TODO: fit a polynomial to the above x and y coordinates
    */
-  auto coeffs = polyfit(xvals, yvals, 3);
+  auto coeffs = polyfit(ptsx, ptsy, 1);
 
   // NOTE: free feel to play around with these
   double x = -1;
@@ -34,7 +34,6 @@ int main() {
    * TODO: calculate the cross track error
    */
   double cte = polyeval(coeffs, x) - y;
-
   /**
    * TODO: calculate the orientation error
    */
